@@ -1,7 +1,7 @@
 *****************************************************
 Summary
 *****************************************************
-Generated at: 2026-09-04T20:05:17-06:00
+Generated at: 2026-09-08T14:52:55-06:00
     by Apache Creadur RAT::Core 0.18 (Apache Software Foundation)
 
 -----------------------------------------------------
@@ -16,9 +16,9 @@ Counters
   License categories: 2    A count of distinct license categories.
   License names:      2    A count of distinct license names.
   Notices:            0    A count of notice files.
-  Standards:          3    A count of standard files.
-  Unapproved:         3    A count of unapproved licenses.
-  Unknown:            2    A count of unknown file types.
+  Standards:          8    A count of standard files.
+  Unapproved:         8    A count of unapproved licenses.
+  Unknown:            7    A count of unknown file types.
 
 
 -----------------------------------------------------
@@ -26,13 +26,13 @@ Licenses detected
 -----------------------------------------------------
 
 GNU General Public License V3.0: 1 
-Unknown license: 2 
+Unknown license: 7 
 
 -----------------------------------------------------
 License Categories detected
 -----------------------------------------------------
 
-?????: 2 
+?????: 7 
 GPL  : 1 
 
 -----------------------------------------------------
@@ -40,7 +40,7 @@ Document Types detected
 -----------------------------------------------------
 
 IGNORED: 2 
-STANDARD: 3 
+STANDARD: 8 
 
 *****************************************************
 Files with unapproved licenses
@@ -49,6 +49,11 @@ Files with unapproved licenses
   /README.md
   /gpl-3.0.txt
   /pom.xml
+  /src/main/java/server/markhome/mcf/v3_1/CFLibLibraryEntry.java
+  /src/main/java/server/markhome/mcf/v3_1/jfx25u-js/server.markhome.mcf.v3_1.jfx25u-js/LibraryEntry.java
+  /src/main/java/server/markhome/mcf/v3_1/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1/CFLibLibraryEntry.java
+  /src/main/java/server/markhome/mcf/v3_1/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1/SServer.markhome.mcf.v3_1LibraryEntry.java
+  /src/main/java/server/markhome/mcf/v3_1/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1.jfx25u-js/LibraryEntry.java
 
 *****************************************************
 Detail
@@ -78,6 +83,26 @@ Detail
 
 ! /pom.xml
   S         application/xml    ISO-8859-1
+    ?????    ?????         Unknown license (Unapproved)
+
+! /src/main/java/server/markhome/mcf/v3_1/CFLibLibraryEntry.java
+  S         text/x-java-source    ISO-8859-1
+    ?????    ?????         Unknown license (Unapproved)
+
+! /src/main/java/server/markhome/mcf/v3_1/jfx25u-js/server.markhome.mcf.v3_1.jfx25u-js/LibraryEntry.java
+  S         text/x-java-source    ISO-8859-1
+    ?????    ?????         Unknown license (Unapproved)
+
+! /src/main/java/server/markhome/mcf/v3_1/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1/CFLibLibraryEntry.java
+  S         text/x-java-source    ISO-8859-1
+    ?????    ?????         Unknown license (Unapproved)
+
+! /src/main/java/server/markhome/mcf/v3_1/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1/SServer.markhome.mcf.v3_1LibraryEntry.java
+  S         text/x-java-source    ISO-8859-1
+    ?????    ?????         Unknown license (Unapproved)
+
+! /src/main/java/server/markhome/mcf/v3_1/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1.jfx25u-js/LibraryEntry.java
+  S         text/x-java-source    ISO-8859-1
     ?????    ?????         Unknown license (Unapproved)
 
   /target

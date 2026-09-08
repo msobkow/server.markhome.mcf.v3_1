@@ -2,13 +2,13 @@
   "SPDXID" : "SPDXRef-DOCUMENT",
   "spdxVersion" : "SPDX-2.3",
   "creationInfo" : {
-    "created" : "2026-09-04T14:45:00Z",
+    "created" : "2026-09-11T11:11:11Z",
     "creators" : [ "Tool: spdx-maven-plugin" ],
     "licenseListVersion" : "3.28.0"
   },
   "name" : "server.markhome.mcf.v3_1",
   "dataLicense" : "CC0-1.0",
-  "documentNamespace" : "http://spdx.org/spdxpackages/server.markhome.mcf_server.markhome.mcf.v3_1-3.1.42",
+  "documentNamespace" : "http://spdx.org/spdxpackages/server.markhome.mcf.v3_1_server.markhome.mcf.v3_1-3.1.42-20260911111111",
   "packages" : [ {
     "SPDXID" : "SPDXRef--4b3779bf0",
     "copyrightText" : "NOASSERTION",
@@ -16,7 +16,7 @@
     "downloadLocation" : "NOASSERTION",
     "externalRefs" : [ {
       "referenceCategory" : "PACKAGE-MANAGER",
-      "referenceLocator" : "pkg:maven/server.markhome.mcf/server.markhome.mcf.v3_1@3.1.42",
+      "referenceLocator" : "pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-20260911111111",
       "referenceType" : "purl"
     } ],
     "filesAnalyzed" : true,
@@ -30,7 +30,7 @@
     },
     "primaryPackagePurpose" : "INSTALL",
     "summary" : "Mark's Code Fractal 3.1.42",
-    "versionInfo" : "3.1.42"
+    "versionInfo" : "3.1.42-20260911111111"
   } ],
   "files" : [ {
     "SPDXID" : "SPDXRef--364c1a5c0",

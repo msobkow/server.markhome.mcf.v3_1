@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>server.markhome.mcf</groupId>
+  <parent>
+    <groupId>server.markhome</groupId>
+    <artifactId>server.markhome.mcf</artifactId>
+    <version>3.1</version>
+  </parent>
+  <groupId>server.markhome.mcf.v3_1</groupId>
   <artifactId>server.markhome.mcf.v3_1</artifactId>
-  <version>3.1.42</version>
+  <version>3.1.42-20260911111111</version>
   <packaging>pom</packaging>
   <name>server.markhome.mcf.v3_1</name>
   <description>Mark's Code Fractal 3.1.42</description>
@@ -32,7 +37,7 @@
     <commons.encoding>UTF-8</commons.encoding>
     <jaxb-api.version>2.4.0-b180725.0427</jaxb-api.version>
     <spring.version>4.0.5</spring.version>
-    <mcf.version>3.1.${env.buildString}-${env.BUILD_STAMP}</mcf.version>
+    <mcf.version>3.1.42-20260911111111</mcf.version>
     <slf4j.version>2.0.17-gov4j-1</slf4j.version>
     <commons.distSvnStagingBase>scm:git:https://github.com/msobkow/</commons.distSvnStagingBase>
     <minimalMavenBuildVersion>3.9</minimalMavenBuildVersion>
@@ -41,8 +46,8 @@
     <commons.release.branch>release</commons.release.branch>
     <commons.release.version>104</commons.release.version>
     <commons.release.next>105</commons.release.next>
-    <commons.rc.version>3.1.42-2026-09-11-11:11:11Z</commons.rc.version>
-    <project.build.outputTimestamp>2026-09-04T14:45:00Z</project.build.outputTimestamp>
+    <commons.rc.version>MCFRC1</commons.rc.version>
+    <project.build.outputTimestamp>20260911111111</project.build.outputTimestamp>
     <commons.jira.id>COMMONSSITE</commons.jira.id>
     <commons.develocity.version>4.2</commons.develocity.version>
     <commons.foojay-resolver-convention.version>1.0.0</commons.foojay-resolver-convention.version>
@@ -67,7 +72,7 @@
     <commons.jacoco.version>0.8.15</commons.jacoco.version>
     <commons.japicmp.version>0.26.1</commons.japicmp.version>
     <commons.jar-plugin.version>3.5.1</commons.jar-plugin.version>
-    <commons.javadoc.version>3.12.0</commons.javadoc.version>
+    <commons.javadoc.version>3.11.2</commons.javadoc.version>
     <commons.jxr.version>3.6.0</commons.jxr.version>
     <commons.pmd.version>3.28.0</commons.pmd.version>
     <commons.pmd-impl.version>7.26.0</commons.pmd-impl.version>
@@ -112,8 +117,8 @@
     <commons.packageId>${project.artifactId}</commons.packageId>
     <commons.repo.name>server.markhome.mcf.v3_1</commons.repo.name>
     <commons.module.name>server.markhome.mcf.v3_1</commons.module.name>
-    <commons.osgi.symbolicName>org.apache.commons.${commons.packageId}</commons.osgi.symbolicName>
-    <commons.osgi.export>org.apache.commons.*;version=${project.version};-noimport:=true</commons.osgi.export>
+    <commons.osgi.symbolicName>server.markhome.mcf.v3_1.${commons.packageId}</commons.osgi.symbolicName>
+    <commons.osgi.export>server.markhome.mcf.v3_1.*;version=${project.version};-noimport:=true</commons.osgi.export>
     <commons.osgi.import>*</commons.osgi.import>
     <commons.osgi.dynamicImport></commons.osgi.dynamicImport>
     <commons.osgi.private></commons.osgi.private>
@@ -237,6 +242,7 @@
     <ver.jdom2>${commons.jdom2.version}</ver.jdom2>
     <ver.selenium-java>${commons.selenium-java.version}</ver.selenium-java>
     <ver.webdrivermanager>${commons.webdrivermanager.version}</ver.webdrivermanager>
+    <rat.ignoreErrors>true</rat.ignoreErrors>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -439,10 +445,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${commons.surefire.version}</version>
-        </plugin>
-        <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>${commons.failsafe.version}</version>
         </plugin>
@@ -520,7 +522,7 @@
           <artifactId>apache-rat-plugin</artifactId>
           <version>${commons.rat.version}</version>
           <configuration>
-            <counterMax>Unapproved:100</counterMax>
+            <counterMax>Unapproved:9999</counterMax>
             <excludes>
               <exclude>site-content/**</exclude>
               <exclude>src/site/resources/.htaccess</exclude>
@@ -545,76 +547,6 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.21.0</version>
-        </plugin>
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${commons.jacoco.version}</version>
-          <executions>
-            <execution>
-              <id>prepare-agent</id>
-              <phase>process-test-classes</phase>
-              <goals>
-                <goal>prepare-agent</goal>
-              </goals>
-              <configuration>
-                <exclClassLoaders>jdk.internal.loader.ClassLoaders$PlatformClassLoader</exclClassLoaders>
-              </configuration>
-            </execution>
-            <execution>
-              <id>report</id>
-              <phase>site</phase>
-              <goals>
-                <goal>report</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>check</id>
-              <goals>
-                <goal>check</goal>
-              </goals>
-              <configuration>
-                <rules>
-                  <rule>
-                    <element>BUNDLE</element>
-                    <limits>
-                      <limit>
-                        <counter>CLASS</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>${commons.jacoco.classRatio}</minimum>
-                      </limit>
-                      <limit>
-                        <counter>INSTRUCTION</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>${commons.jacoco.instructionRatio}</minimum>
-                      </limit>
-                      <limit>
-                        <counter>METHOD</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>${commons.jacoco.methodRatio}</minimum>
-                      </limit>
-                      <limit>
-                        <counter>BRANCH</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>${commons.jacoco.branchRatio}</minimum>
-                      </limit>
-                      <limit>
-                        <counter>LINE</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>${commons.jacoco.lineRatio}</minimum>
-                      </limit>
-                      <limit>
-                        <counter>COMPLEXITY</counter>
-                        <value>COVEREDRATIO</value>
-                        <minimum>${commons.jacoco.complexityRatio}</minimum>
-                      </limit>
-                    </limits>
-                  </rule>
-                </rules>
-                <haltOnFailure>${commons.jacoco.haltOnFailure}</haltOnFailure>
-              </configuration>
-            </execution>
-          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
@@ -700,20 +632,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>org.spdx</groupId>
-          <artifactId>spdx-maven-plugin</artifactId>
-          <version>${commons.spdx.version}</version>
-          <executions>
-            <execution>
-              <id>build-sbom-spdx</id>
-              <phase>package</phase>
-              <goals>
-                <goal>createSPDX</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>javancss-maven-plugin</artifactId>
           <version>2.1</version>
@@ -793,8 +711,9 @@
         <version>${commons.jar-plugin.version}</version>
         <executions>
           <execution>
+            <phase>package</phase>
             <goals>
-              <goal>test-jar</goal>
+              <goal>jar</goal>
             </goals>
             <configuration>
               <skipIfEmpty>true</skipIfEmpty>
@@ -1121,39 +1040,6 @@
       <properties>
         <animal-sniffer.signature>java${javaTarget.majorVersion}${javaTarget.minorVersion}</animal-sniffer.signature>
       </properties>
-    </profile>
-    <profile>
-      <id>jacoco</id>
-      <activation>
-        <file>
-          <exists>src/site/resources/profile.jacoco</exists>
-        </file>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>${commons.jacoco.version}</version>
-          </plugin>
-        </plugins>
-      </build>
-      <reporting>
-        <plugins>
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>${commons.jacoco.version}</version>
-            <reportSets>
-              <reportSet>
-                <reports>
-                  <report>report</report>
-                </reports>
-              </reportSet>
-            </reportSets>
-          </plugin>
-        </plugins>
-      </reporting>
     </profile>
     <profile>
       <id>japicmp</id>

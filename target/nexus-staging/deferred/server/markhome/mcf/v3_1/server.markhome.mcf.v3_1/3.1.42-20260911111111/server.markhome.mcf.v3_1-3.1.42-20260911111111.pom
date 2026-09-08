@@ -642,6 +642,11 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${commons.surefire.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
 					<version>${commons.failsafe.version}</version>
 				</plugin>
@@ -749,6 +754,82 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>2.21.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${commons.jacoco.version}</version>
+					<!-- Note that since JaCoCo relies on an agent to perform tests,
+						it changes the surefire arguments line. If a component also
+						needs to change the argument line of maven-surefire-plugin,
+						then it must add ${argLine} property (which is set by JaCoCo)
+						in the argLine configuration element of maven-surefire-plugin
+						to preserve JaCoCo settings. -->
+					<executions>
+						<execution>
+							<id>prepare-agent</id>
+							<phase>process-test-classes</phase>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+							<configuration>
+								<exclClassLoaders>jdk.internal.loader.ClassLoaders$PlatformClassLoader</exclClassLoaders>
+							</configuration>
+						</execution>
+						<execution>
+							<id>report</id>
+							<phase>site</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>check</id>
+							<goals>
+								<goal>check</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<rule>
+										<element>BUNDLE</element>
+										<limits>
+											<limit>
+												<counter>CLASS</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.classRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>INSTRUCTION</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.instructionRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>METHOD</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.methodRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>BRANCH</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.branchRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>LINE</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.lineRatio}</minimum>
+											</limit>
+											<limit>
+												<counter>COMPLEXITY</counter>
+												<value>COVEREDRATIO</value>
+												<minimum>${commons.jacoco.complexityRatio}</minimum>
+											</limit>
+										</limits>
+									</rule>
+								</rules>
+								<haltOnFailure>${commons.jacoco.haltOnFailure}</haltOnFailure>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -935,9 +1016,8 @@
 				<version>${commons.jar-plugin.version}</version>
 				<executions>
 					<execution>
-						<phase>package</phase>
 						<goals>
-							<goal>jar</goal>
+							<goal>test-jar</goal>
 						</goals>
 						<configuration>
 							<!-- Avoids an error when releasing the parent pom -->
@@ -1360,6 +1440,52 @@
 
 				</plugins>
 			</build>
+		</profile>
+		<profile>
+			<id>jacoco</id>
+			<activation>
+				<!--
+					In spite of what the Maven docs may say,
+					activation conditions are ORed together, see:
+					https://issues.apache.org/jira/browse/MNG-4565
+					Fairly useless, but that's what was done in
+					https://issues.apache.org/jira/browse/MNG-3106
+
+					So we cannot also check for Java 1.5+
+					This should not be a problem now as the profile is optional.
+					Components that still target Java 1.4 or earlier
+					just need to ensure they don't use JaCoCo by default.
+				-->
+				<file>
+					<exists>src/site/resources/profile.jacoco</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${commons.jacoco.version}</version>
+					</plugin>
+				</plugins>
+			</build>
+			<reporting>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${commons.jacoco.version}</version>
+						<reportSets>
+							<reportSet>
+								<reports>
+									<!-- select non-aggregate reports -->
+									<report>report</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+					</plugin>
+				</plugins>
+			</reporting>
 		</profile>
 		<profile>
 			<id>japicmp</id>
