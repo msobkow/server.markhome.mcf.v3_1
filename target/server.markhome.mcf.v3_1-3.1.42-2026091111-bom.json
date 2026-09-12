@@ -1,7 +1,7 @@
 {
   "bomFormat" : "CycloneDX",
   "specVersion" : "1.6",
-  "serialNumber" : "urn:uuid:e31fee21-28d2-3db2-8163-c4675b294997",
+  "serialNumber" : "urn:uuid:83395b74-1bc0-3272-82ba-2c7f31c25d59",
   "version" : 1,
   "metadata" : {
     "lifecycles" : [
@@ -57,12 +57,12 @@
     },
     "component" : {
       "type" : "library",
-      "bom-ref" : "pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-20260911111111?type=pom",
+      "bom-ref" : "pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-2026091111?type=pom",
       "group" : "server.markhome.mcf.v3_1",
       "name" : "server.markhome.mcf.v3_1",
-      "version" : "3.1.42-20260911111111",
+      "version" : "3.1.42-2026091111",
       "description" : "Mark's Code Fractal 3.1.42",
-      "purl" : "pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-20260911111111?type=pom",
+      "purl" : "pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-2026091111?type=pom",
       "externalReferences" : [
         {
           "type" : "distribution-intake",
@@ -87,7 +87,7 @@
   },
   "dependencies" : [
     {
-      "ref" : "pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-20260911111111?type=pom",
+      "ref" : "pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-2026091111?type=pom",
       "dependsOn" : [ ]
     }
   ]

@@ -31,7 +31,7 @@
     <maven-toolchains.version>3.3.0</maven-toolchains.version>
     <graal.mainClass>YouMustDefineAMainClassForGraalVM</graal.mainClass>
     <graalvm-buildtools.version>1.1.10</graalvm-buildtools.version>
-    <graaljs.version>25.3.4.1</graaljs.version>
+    <graaljs.version>25.2.4</graaljs.version>
     <project.build.sourceEncoding>${commons.encoding}</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${commons.encoding}</project.reporting.outputEncoding>
     <commons.encoding>UTF-8</commons.encoding>
@@ -72,7 +72,7 @@
     <commons.jacoco.version>0.8.15</commons.jacoco.version>
     <commons.japicmp.version>0.26.1</commons.japicmp.version>
     <commons.jar-plugin.version>3.5.1</commons.jar-plugin.version>
-    <commons.javadoc.version>3.11.2</commons.javadoc.version>
+    <commons.javadoc.version>3.12.0</commons.javadoc.version>
     <commons.jxr.version>3.6.0</commons.jxr.version>
     <commons.pmd.version>3.28.0</commons.pmd.version>
     <commons.pmd-impl.version>7.26.0</commons.pmd-impl.version>
@@ -126,7 +126,7 @@
     <commons.manifestfile>${project.build.directory}/osgi/MANIFEST.MF</commons.manifestfile>
     <commons.deployment.protocol>scp</commons.deployment.protocol>
     <commons.docEncoding>${commons.encoding}</commons.docEncoding>
-    <commons.javadoc.failOnWarnings>true</commons.javadoc.failOnWarnings>
+    <commons.javadoc.failOnWarnings>false</commons.javadoc.failOnWarnings>
     <commons.javadoc.java.link>https://docs.oracle.com/en/java/javase/21/docs/api/</commons.javadoc.java.link>
     <commons.javadoc.javaee5.link>https://docs.oracle.com/javaee/5/api/</commons.javadoc.javaee5.link>
     <commons.javadoc.javaee6.link>https://docs.oracle.com/javaee/6/api/</commons.javadoc.javaee6.link>

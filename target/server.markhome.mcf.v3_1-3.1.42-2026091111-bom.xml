@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bom serialNumber="urn:uuid:e31fee21-28d2-3db2-8163-c4675b294997" version="1" xmlns="http://cyclonedx.org/schema/bom/1.6">
+<bom serialNumber="urn:uuid:83395b74-1bc0-3272-82ba-2c7f31c25d59" version="1" xmlns="http://cyclonedx.org/schema/bom/1.6">
   <metadata>
     <lifecycles>
       <lifecycle>
@@ -27,12 +27,12 @@
         </component>
       </components>
     </tools>
-    <component type="library" bom-ref="pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-20260911111111?type=pom">
+    <component type="library" bom-ref="pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-2026091111?type=pom">
       <group>server.markhome.mcf.v3_1</group>
       <name>server.markhome.mcf.v3_1</name>
-      <version>3.1.42-20260911111111</version>
+      <version>3.1.42-2026091111</version>
       <description>Mark's Code Fractal 3.1.42</description>
-      <purl>pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-20260911111111?type=pom</purl>
+      <purl>pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-2026091111?type=pom</purl>
       <externalReferences>
         <reference type="distribution-intake">
           <url>http://nexus3.mcf.markhome.server:8081/repository/mcf.markhome.server-hosted/</url>
@@ -46,6 +46,6 @@
     </properties>
   </metadata>
   <dependencies>
-    <dependency ref="pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-20260911111111?type=pom"/>
+    <dependency ref="pkg:maven/server.markhome.mcf.v3_1/server.markhome.mcf.v3_1@3.1.42-2026091111?type=pom"/>
   </dependencies>
 </bom>

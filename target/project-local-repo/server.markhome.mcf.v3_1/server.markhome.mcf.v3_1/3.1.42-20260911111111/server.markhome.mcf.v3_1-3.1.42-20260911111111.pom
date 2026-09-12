@@ -3,7 +3,7 @@
 		<modelVersion>4.0.0</modelVersion>
 		<groupId>server.markhome.mcf.v3_1</groupId>
 		<artifactId>server.markhome.mcf.v3_1</artifactId>
-		<version>3.1.42-20260911111111</version>
+		<version>3.1.42-2026091111</version>
 		<name>server.markhome.mcf.v3_1</name>
 		<description>Mark's Code Fractal 3.1.42</description>
 		<packaging>pom</packaging>
@@ -31,13 +31,13 @@
 		<maven-toolchains.version>3.3.0</maven-toolchains.version>
 		<graal.mainClass>YouMustDefineAMainClassForGraalVM</graal.mainClass>
 		<graalvm-buildtools.version>1.1.10</graalvm-buildtools.version>
-		<graaljs.version>25.3.4.1</graaljs.version>
+		<graaljs.version>25.2.4</graaljs.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<commons.encoding>UTF-8</commons.encoding>
 		<jaxb-api.version>2.4.0-b180725.0427</jaxb-api.version>
 		<spring.version>4.0.5</spring.version>
-		<mcf.version>3.1.42-20260911111111</mcf.version>
+		<mcf.version>3.1.42-2026091111</mcf.version>
 		<slf4j.version>2.0.17-gov4j-1</slf4j.version>
 		<commons.distSvnStagingBase>scm:git:https://github.com/msobkow/</commons.distSvnStagingBase>
 		<minimalMavenBuildVersion>3.9</minimalMavenBuildVersion>
@@ -50,7 +50,7 @@
 		<commons.release.version>104</commons.release.version>
 		<commons.release.next>105</commons.release.next>
 		<commons.rc.version>MCFRC1</commons.rc.version>
-		<project.build.outputTimestamp>20260911111111</project.build.outputTimestamp>
+		<project.build.outputTimestamp>202609111111</project.build.outputTimestamp>
 		<commons.jira.id>COMMONSSITE</commons.jira.id>
 		<commons.develocity.version>4.2</commons.develocity.version>
 		<commons.foojay-resolver-convention.version>1.0.0</commons.foojay-resolver-convention.version>
@@ -87,7 +87,7 @@
 		<commons.jacoco.version>0.8.15</commons.jacoco.version>
 		<commons.japicmp.version>0.26.1</commons.japicmp.version>
 		<commons.jar-plugin.version>3.5.1</commons.jar-plugin.version>
-    	<commons.javadoc.version>3.11.2</commons.javadoc.version>
+    	<commons.javadoc.version>3.12.0</commons.javadoc.version>
 		<commons.jxr.version>3.6.0</commons.jxr.version>
 		<commons.pmd.version>3.28.0</commons.pmd.version>
 		<commons.pmd-impl.version>7.26.0</commons.pmd-impl.version>
@@ -179,7 +179,7 @@
 		<project.build.sourceEncoding>${commons.encoding}</project.build.sourceEncoding>
 		<!-- This is used by reporting plugins -->
 		<project.reporting.outputEncoding>${commons.encoding}</project.reporting.outputEncoding>
-		<commons.javadoc.failOnWarnings>true</commons.javadoc.failOnWarnings>
+		<commons.javadoc.failOnWarnings>false</commons.javadoc.failOnWarnings>
 		<!-- Javadoc link to Java API LTS versions. -->
 		<!-- Modern Javadoc versions redirect to newest site (Java 22) when you ask for older links like Java 8. -->
 		<commons.javadoc.java.link>https://docs.oracle.com/en/java/javase/21/docs/api/</commons.javadoc.java.link>
@@ -224,7 +224,7 @@
 		<changes.announcementFile>RELEASE-NOTES.txt</changes.announcementFile>
 		<java.version>25</java.version>
 
-		<project.build.outputTimestamp>20260911111111</project.build.outputTimestamp>
+		<project.build.outputTimestamp>2026091111</project.build.outputTimestamp>
 
 		<!-- Logging -->
 		<commons.slf4j.version>${slf4j.version}</commons.slf4j.version>
